@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Blog</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+  </head>
+  <body>
+    <header>
+      <h1><%= title%></h1>
+    </header>
+
+    <nav>
+      <span><a href="/" title="主頁">home</a></span>
+      <span><a href="/archive" title='存檔'>archive</a></span>
+      <span><a href="/tags" title="標籤">tags</a></span>
+      <span><a href="/links" title="友情鏈接">links</a></span>
+      <% if(user) {%>
+        <span><a href="/upload" title="上傳">upload</a></span>
+        <span><a href="/post" title='發表'>post</a></span>
+        <span><a href="/logout" title="登出">logout</a></span>
+      <% } else {%>
+        <span><a href="/login" title="登錄">login</a></span>
+        <span><a href="/reg" title="註冊">register</a></span>
+      <% } %>
+      <span><form action="/search" method="get">
+        <input type="text" name="keyword" placeholder="SEARCH" class="search">
+      </form></span>
+    </nav>
+
+    <article>
+      <%if(success){%>
+        <div >成功-------<%= success%></div>
+      <%}%>
+      <%if(error){%>
+        <div>錯誤-------<%= error%></div>
+      <%}%>
